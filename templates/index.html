@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Laudo Técnico</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Laudo Técnico</h1>
+        <form id="laudo_Form" action="/generate_pdf" method="POST">
+            <div class="solicitante">
+                <label for="solicitante">Solicitante: </label>
+                <input type="text" value="ds" name="solicitante" placeholder="Solicitante" id="solicitante">
+            </div>
+            <div class="tipo-laudo">
+                <span>Tipo de Laudo: </span>
+                <div>
+                    <input type="radio" checked name="tipo-laudo" id="manutencao-preventiva" value="manutencao-preventiva">
+                    <label for="manutencao-preventiva">Manutenção Preventiva</label>
+                </div>
+                <div>                
+                    <input type="radio" name="tipo-laudo" id="manutencao-corretiva" value="manutencao-corretiva">
+                    <label for="manutencao-corretiva">Manutenção Corretiva</label>
+                </div>
+                <div>
+                    <input type="radio" name="tipo-laudo" id="instalacao" value="instalacao">
+                    <label for="instalacao">Instalação</label>
+                </div>
+                
+            </div>
+            <div class="equipamento">
+                <label for="equipamento">Equipamento:</label>
+                <input type="text" value="ds" name="equipamento" placeholder="Equipamento" id="equipamento">
+            </div>            
+            <div class="marca">
+                 <label for="marca">Marca:</label>
+                <input type="text" value="ds" name="marca" placeholder="Marca" id="marca">
+            </div>            
+            <div class="modelo">
+                <label for="modelo">Modelo:</label>
+                <input type="text" value="ds" name="modelo" placeholder="Modelo" id="modelo">
+            </div>            
+            <div class="patrimonio">
+                <label for="patrimonio">Patrimônio:</label>
+                <input type="text" value="ds" name="patrimonio" placeholder="Patrimonio" id="patrimonio">
+            </div>
+            <div class="n-ms">
+                <label for="n-ms">Nº MS:</label>
+                <input type="text" value="ds" name="n-ms" placeholder="Nº MS" id="n-ms">
+            </div>
+            <div class="sn">
+                <label for="sn">SN:</label>
+                <input type="text" value="ds" name="sn" placeholder="SN" id="sn">
+            </div>
+            
+            <div class="servicos">
+                <label for="servicos">Serviços Prestados: </label>
+                <input type="text" id="servicos" placeholder="Digite um serviço">
+                <input type="button" value="Adicionar" id="adicionarServico">
+                <ul id="listaServicos"></ul>
+                <input type="hidden" name="servicos" id="servicosHidden"> <!-- Campo oculto -->
+            </div>
+
+            <div class="diagnostico">
+                <label for="diagnostico">Diagnóstico:</label>
+                <textarea name="diagnostico" id="diagnostico">Equipamento conforme as especificações do fabricante.</textarea>
+            </div>
+            
+            <div class="conclusao">
+                <label for="conclusao">Conclusão:</label>
+                    <textarea rows="5" name="conclusao" id="conclusao">Foi feito a manutenção preventiva, foi feito os teste de condução e Tensão, Segurança elétrica,Corrente, e frequência, todos estão dentro do conforme 
+                    </textarea>
+            </div>
+
+            <input type="hidden" name="servicos" id="servicosHidden"> <!-- Campo oculto -->
+            <button type="submit">Gerar PDF</button>
+        </form>
+    </div>
+
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
