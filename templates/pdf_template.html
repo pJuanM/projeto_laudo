@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laudo Técnico</title>
+    <link rel="stylesheet" href="../static/pdf_style.css">
+</head>
+<body>
+    <header>
+        <div class="header-info">
+            <picture>
+                <img src="{{ request.url_root }}static/img/logo_moura.png" alt="logo_moura">
+            </picture>
+
+
+
+            <div class="header-info-text">
+                <p><strong>Moura Manutenção Hospitalar e Clinicas</strong></p>
+                <p><strong>Endereço:</strong> Caminho 28, Nº18 Urbis 5 </p>
+                <p><strong>Cidade-UF:</strong> Vitoria da Conquista-BA</p>
+                <p><strong>CNPJ:</strong> 60.706.183/0001-97</p>
+                <p><strong>Tel.:</strong> (77) 98837-8443</p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="solicitante background-titulo">
+            <p><strong>Dados do Solicitante:</strong> {{ solicitante }}&nbsp;&nbsp;&nbsp;&nbsp;<strong>Data:</strong> {{dia}}/{{mes_num}}/{{ano}}</p>
+        </section>
+        <section class="tipo-laudo">
+            <h1 class="background-titulo">LAUDO TÉCNICO</h1>
+            {% if laudo == "manutencao-preventiva" %}
+            <span>
+                ( X ) Manutenção Preventiva&nbsp;&nbsp;(&nbsp;&nbsp;) Manutenção Corretiva&nbsp;&nbsp;(&nbsp;&nbsp;) Instalação
+            </span>
+            {% endif %}
+
+            {% if laudo == "manutencao-corretiva" %}
+            <span>
+                (&nbsp;&nbsp;) Manutenção Preventiva&nbsp;&nbsp;( X ) Manutenção Corretiva&nbsp;&nbsp;(&nbsp;&nbsp;) Instalação
+            </span>
+            {% endif %}
+
+            {% if laudo == "instalacao" %}
+            <span>
+                (&nbsp;&nbsp;) Manutenção Preventiva&nbsp;&nbsp;(&nbsp;&nbsp;) Manutenção Corretiva&nbsp;&nbsp;( X ) Instalação
+            </span>
+            {% endif %}
+            
+        </section>
+        <section class="dados-equipamento">
+            <h1 class="background-titulo">Dados do Equipamento: </h1>
+            <div>
+                <p><strong>Equipamento: </strong>{{ equipamento }}</p>
+                {% if marca %}
+                    <p><strong>Marca: </strong>{{ marca }}</p>
+                {% endif %}
+                {% if modelo %}
+                    <p><strong>Modelo: </strong>{{ modelo }}</p>
+                {% endif %}
+                {% if patrimonio %}
+                    <p><strong>Patrimônio: </strong>{{ patrimonio }}</p>
+                {% endif %}
+                {% if ms %}
+                    <p><strong>Nº MS: </strong>{{ ms }}</p>
+                {% endif %}
+                {% if sn %}
+                    <p><strong>SN: </strong>{{ sn }}</p>
+                {% endif %}
+            
+                
+                
+                
+                
+                
+            </div>
+        </section>
+        <section class="objetivo-laudo">
+            <h1 class="background-titulo">OBJETIVO DO LAUDO</h1>
+            <p>
+                O presente Laudo Técnico tem por objetivo verificar e comprovar a fiel execução de
+                serviço constante no Atestado de Capacidade Técnica emitido pelo Técnico Jorge
+                Luiz
+            </p>
+        </section>
+        <section class="id-servico">
+            <h1 class="background-titulo">IDENTIFICAÇÃO DO SERVIÇO</h1>
+            <strong>Responsável Técnico – Jorge Luiz</strong>
+            <ul>
+                {% for servico in servicos %}
+                    <li><strong>{{ servico }}</strong></li>
+                {% endfor %}
+            </ul>
+
+        </section>
+        <section class="diagnostico">
+            <h1 class="background-titulo">DIAGNÓSTICO DA SITUAÇÃO ENCONTRADA</h1>
+            <p>{{diagnostico}}</p>
+        </section>
+    </main>
+    <footer>
+        <h2 class="background-titulo">CONCLUSÃO</h2>
+        <p>{{ conclusao }}</p>
+        <p class="aprovacao">Liberado para uso.</p>
+        <span>Vitória da Conquista-BA, {{ dia }} de {{ mes }} de {{ ano }}</span>
+        <div class="verificado">
+            <p>Jorge L.O. Moura</p>
+            <p>CRT-BA 36636118504</p>
+            <p>Tec. Industrial</p>
+        </div>
+    </footer>
+</body>
+</html>

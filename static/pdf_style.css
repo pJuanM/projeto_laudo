@@ -1,0 +1,79 @@
+@page {
+    size: A4;
+    margin: 1cm; /* Define margens */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+}
+
+.background-titulo {
+    background-color: #8080806e;
+}
+
+header {
+    padding-bottom: 1.5cm;
+}
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8cm;
+}
+.header-info > picture img{
+    width: 200px;
+    height: 200px;
+}
+.header-info-text {
+    line-height: .8;
+}
+
+.solicitante p {
+    padding: .6em 0;
+}
+
+.tipo-laudo {
+    text-align: center;
+}
+.tipo-laudo span {
+    font-weight: 700;
+}
+
+.dados-equipamento p {
+    font-weight: 700;
+}
+
+.objetivo-laudo p{
+    line-height: 2;
+}
+
+
+footer {
+    position: relative;
+    height: 300px;
+}
+
+.aprovacao {
+    color: rgb(22, 221, 22);
+    font-weight: 700;
+}
+footer span {
+    display: block;
+    text-align: right;   
+    font-weight: 700;
+}
+
+.verificado{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px dashed rgb(184, 34, 34);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.verificado p {
+    margin: 2px;
+    padding: 0;
+}
